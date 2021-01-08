@@ -10,6 +10,20 @@ $green: #6aeaa0;
 $selected-color: #6feaf6;
 $occupied-color: #fff;
 
+//  Mixins
+
+@mixin mobile {
+  @media (max-width: 567px) and (min-height: 415px) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape {
+  @media (max-height: 414px) and (max-width: 767px) and (orientation: landscape) {
+    @content;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -22,6 +36,14 @@ html {
   overflow: hidden;
   height: 100%;
   font-size: 90%;
+
+  @include mobile {
+    font-size: 60%;
+  }
+
+  @include mobile-landscape {
+    font-size: 50%;
+  }
 }
 
 body {
